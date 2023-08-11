@@ -1,5 +1,12 @@
 <?php
 session_start();
+include "bdd/conn.php";
+$conn = new MaConnexion("videogramme", "", "root", "localhost");
+$bienSelectionne = isset($_GET['ID_Video']) ? $_GET['ID_Video'] : 0;
+
+$bienAffiche = $conn->select("video where ID_Video = '$bienSelectionne'");
+var_dump($bienSelectionne);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +17,7 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="../../css/style.css">
-    <title><?php echo $video[0]["Nom"] ?></title>
+    <title><?php  ?></title>
 </head>
 
 <body>
@@ -29,13 +36,13 @@ session_start();
                     <!-- les truc à coté -->
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#"><i class="fa-solid fa-house"></i> Accueil</a>
+                            <a class="nav-link" aria-current="page" href="video.php"><i class="fa-solid fa-house"></i> Accueil</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><i class="fa-solid fa-comments"></i> Forum</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa-solid fa-user"></i> Se connecter</a>
+                            <a class="nav-link" href="connexion.php"><i class="fa-solid fa-user"></i> Se connecter</a>
                         </li>
                     </ul>
                 </div>
@@ -43,7 +50,27 @@ session_start();
         </nav>
     </header>
 
-    <main></main>
+    <main>
+        <h1>titre</h1>
+        <section>
+
+            <?php 
+            foreach ($bienAffiche as $element){
+                  echo
+                '
+                <div>
+                    <iframe src="' . $element['Lien'] . '" frameborder="0"></iframe>
+                </div>
+                
+                <p> ' . $element['DatePublication'] . ' | '.$element['Langue'].'</p>
+                <p>' . $element['Description'] . '</p>'
+            ;}
+          
+            ?>
+
+        </section>
+
+    </main>
 
     <footer></footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">

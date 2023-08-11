@@ -17,10 +17,35 @@ $video = $conn->select("video");
 </head>
 
 <body>
-    <header></header>
-    <section>
-        <iframe src="https://player.vimeo.com/video/384418017" frameborder="0"></iframe>
-    </section>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <!-- logo -->
+                <a class="navbar-brand" href="#"><i class="fa-solid fa-pizza-slice fa-2xl"></i></a>
+
+                <!-- search bar -->
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- les truc à coté -->
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="video.php"><i class="fa-solid fa-house"></i> Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fa-solid fa-comments"></i> Forum</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="connexion.php"><i class="fa-solid fa-user"></i> Se connecter</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
     <main>
         <!-- partie avec le carousel -->
         <section>
@@ -30,13 +55,12 @@ $video = $conn->select("video");
                     foreach ($video as $uneDonnee) {
                         //var_dump($uneDonnee);
                         echo
-                        '<div class="carousel-item active">
-                            <div class="card" style="width: 20rem;">
+                        '<div class=" card carousel-item active">
+                            <div class="" style="width: auto;">
                                     <img src="' . $uneDonnee["Image"] . '" class="d-block w-100 card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">' . $uneDonnee["Titre"] . '</h5>
-                                        <p class="card-text"> ' . $uneDonnee["Description"] . ' </p>
-                                        <a href="' . $uneDonnee["ID_Video"] . '" class="btn btn-primary">Go somewhere</a>
+                                        <a href="page.php?ID_Video=' . $uneDonnee["ID_Video"] . '" class="btn btn-primary">Go somewhere</a>
                                     </div>
                                 </div>
                             </div>';
@@ -54,18 +78,19 @@ $video = $conn->select("video");
             </div>
         </section>
         <!-- partie avec les cartes -->
-        <section class="d-flex" >
-            <?php 
-                foreach ($video as $uneDonnee) {
-                    echo
-                    '<div class="card" style="width: 18rem;">
-                        <img src="' . $uneDonnee["Image"] .'" class="card-img-top" alt="-----">
+
+        <section class="d-flex marge">
+            <?php
+            foreach ($video as $uneDonnee) {
+                echo
+                '<div class="card" style="width: 18rem;">
+                        <img src="' . $uneDonnee["Image"] . '" class="card-img-top" alt="-----">
                         <div class="card-body">
                             <p class="card-text">' . $uneDonnee["Titre"] . '</p>
                         </div>
-                    </div>'
-                ;}
-            
+                    </div>';
+            }
+
             ?>
         </section>
     </main>

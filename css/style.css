@@ -2,7 +2,6 @@ nav{
     display: flex;
 }
 
-img {
-    width: 10rem;
-    height: 20rem;
+.marge{
+    margin-top: 10%;
 }

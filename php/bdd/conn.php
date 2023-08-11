@@ -256,8 +256,8 @@ class MaConnexion{
 
 }
 
-//$test = new MaConnexion("videogramme", "", "root", "localhost");
-
+//$conn = new MaConnexion("videogramme", "", "root", "localhost");
+//var_dump($bienAffiche = $conn->select("video where ID_Video = '1' "));
 
 //$supp = $test->select("video");
 //var_dump($supp);
