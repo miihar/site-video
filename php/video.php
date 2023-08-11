@@ -56,6 +56,7 @@ $video = $conn->select("video");
                         //var_dump($uneDonnee);
                         echo
                         '<div class=" card carousel-item active">
+                            
                             <div class="" style="width: auto;">
                                     <img src="' . $uneDonnee["Image"] . '" class="d-block w-100 card-img-top" alt="...">
                                     <div class="card-body">
