@@ -19,7 +19,7 @@ session_start();
     
     <?php   ?>
     <div class="header">
-        <h1>Connexion</h1>
+        <h1>Insertion Videos</h1>
     </div>
         
     </header>
@@ -33,28 +33,28 @@ session_start();
             <form action="bdd/insertionVideos.php" method="POST">
 
                 <div class="placementLabelFormulaire">
-                    <label class="tailleLabel" for="inscriptionNom">Nom:</label>
+                    <label class="tailleLabel" for="inscriptionNom">Nom de la video :</label>
                     <input class="tailleInput" id="inscriptionNom" type="text" placeholder="Nom " name="Nom">
                 </div>
                 
                 <div class="placementLabelFormulaire">
-                    <label class="tailleLabel" for="inscriptionPrenom">Prenom:</label>
+                    <label class="tailleLabel" for="inscriptionPrenom">Titre de la video :</label>
                     <input class="tailleInput" id="inscriptionPrenom" type="text" placeholder="Titre" name="Titre">
                 </div>
 
                 <div class="placementLabelFormulaire">
-                    <label class="tailleLabel" for="inscriptionAdresseMail">Adresse email:</label>
+                    <label class="tailleLabel" for="inscriptionAdresseMail">Description de la video :</label>
                     <input class="tailleInput" id="inscriptionAdresseMail" type="text" placeholder="Description" name="Description">
                 </div>             
                 
                 <div class="placementLabelFormulaire">
-                    <label class="tailleLabel" for="inscriptionPseudo">Pseudo:</label>
+                    <label class="tailleLabel" for="inscriptionPseudo">Date de la publication :</label>
                     <input class="tailleInput" id="inscriptionPseudo" type="text" placeholder="Date de Publication" name="DatePubli">
                 </div>
                 
                 <div class="placementLabelFormulaire">
-                    <label class="tailleLabel" for="inscriptionMotDePasse">Mot de passe:</label>
-                    <input class="tailleInput" id="inscriptionMotDePasse" type="password" placeholder="Langue" name="Langue">
+                    <label class="tailleLabel" for="inscriptionMotDePasse">Langue :</label>
+                    <input class="tailleInput" id="inscriptionMotDePasse" type="text" placeholder="Langue" name="Langue">
                 </div>
                 
                 <input type="hidden" name="ID_Role" value="2">

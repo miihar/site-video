@@ -61,7 +61,7 @@ $video = $conn->select("video");
                                     <img src="' . $uneDonnee["Image"] . '" class="d-block w-100 card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">' . $uneDonnee["Titre"] . '</h5>
-                                        <a href="page.php?ID_Video=' . $uneDonnee["ID_Video"] . '" class="btn btn-primary">Go somewhere</a>
+                                        <a href="index.php?ID_Video=' . $uneDonnee["ID_Video"] . '" class="btn btn-primary">Go somewhere</a>
                                     </div>
                                 </div>
                             </div>';
